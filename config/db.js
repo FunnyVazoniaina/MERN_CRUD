@@ -1,12 +1,11 @@
 // Connect to MongoDB
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const connectDB = () => {
   mongoose
-    .connect(
-      "mongodb+srv://funnyvazoniaina:HxDd4nwnDVhjWFFf@crud.vfgfj2i.mongodb.net/?retryWrites=true&w=majority&appName=CRUD",
-      {}
-    )
+    .connect(process.env.MONGO_URI, {})
     .then(() => {
       console.log("Connected to MongoDB");
     })
